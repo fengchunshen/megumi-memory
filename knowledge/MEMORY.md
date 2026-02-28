@@ -94,6 +94,14 @@
 - 腾讯广告联盟: GDT_APP_ID, GDT_PLACEMENT_ID (https://e.qq.com)
 - 虎皮椒支付: XUNHU_APPID, XUNHU_APPSECRET (https://www.xunhupay.com)
 
+## 日程管理应用 (schedule-app)
+- 状态: 产品经理规划中
+- 端口: 8002
+- 核心功能: 日程管理 + 短信/电话提醒（阿里云）
+- 商业化: 付费模式 + 邀请分佣
+- 技术要求: 前后端分离，多端兼容，多主题切换
+- 启动时间: 2026-02-28
+
 ## PDF查重工具 (pdf-checker)
 - 项目路径: /home/lighthouse/pdf-checker
 - 端口: 8080
