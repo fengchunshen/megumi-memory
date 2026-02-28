@@ -18,7 +18,8 @@
 - root 不能用 --dangerously-skip-permissions，需用 lighthouse 用户
 - node 实体文件在 /usr/local/bin/node
 - Claude Code wrapper: /usr/local/bin/claude-code
-- 中转站: https://code.newcli.com/claude/droid
+- 中转站: https://code.newcli.com/claude (2026-02-28更换)
+- 模型: claude-opus-4-6
 
 ## Obsidian Vault
 - 开发文档: /root/obsidian/dev-docs/ → GitHub fengchunshen/dev-docs
@@ -130,10 +131,22 @@
 - 8个API已支持分页: schedules, search, notifications, admin/users, admin/users/search, admin/orders, admin/announcements, admin/logs
 - 前端: Pager通用组件，用户端和管理端都已适配
 
-### 待处理需求 (2026-02-28)
-- 非VIP用户权益设计：有哪些权益，如何体现
-- VIP购买清单后台可编辑
-- 状态: 待产品经理出方案
+### VIP权益+套餐管理系统 (2026-02-28 完成)
+- 后端: VipPackage表(动态套餐)，替换硬编码VIP_PLANS
+- 免费用户限制: 50条日程/5个分类/3个重复日程/无短信电话/2套主题
+- 管理端: 新增"💎套餐"tab，支持增删改/上下架/推荐标签/权益编辑
+- 用户端VIP页: 权益对比表+用量仪表盘+动态套餐卡片
+- API: /admin/packages CRUD + /vip/limits + /user/quota
+
+### 交互体验优化 P0 (2026-02-28 完成)
+- 全局动效CSS: fade-in/fade-up/scale-in/shake/overlay动画
+- 按钮反馈: active:scale(0.96) + hover效果
+- 侧边栏: 移动端底部导航 + 桌面端高亮优化
+- 表单验证: 实时验证+错误提示+shake动画
+- 加载状态: PageLoading/Spinner/EmptyState组件
+- 确认弹窗: Confirm组件(删除二次确认)
+- 卡片动效: card-hover悬浮 + 列表入场延迟动画
+- 登录页: scale-in动画 + spinner + shake错误提示
 
 ### 待对接
 - 阿里云短信SDK + 语音通话API
