@@ -208,6 +208,23 @@
 - 后台调度: daemon线程每60秒扫描自动发送
 - 配置(等领导提供): ALIYUN_ACCESS_KEY_ID/SECRET, SMS_SIGN_NAME, SMS_TEMPLATE_CODE, TTS_CODE
 
+### VIP续费逻辑优化 (2026-02-28 完成)
+- 续费规则: 时长叠加+额度叠加（未到期在到期时间上叠加，已到期从当前算）
+- 续费预览API: GET /api/vip/renew-preview
+- 习惯打卡免费用户: 只看近30天历史，VIP看全部
+- 前端: VipPage续费预览弹窗、权益对比表更新、HabitPage限制提示
+
+### 日程便捷性优化 (2026-02-28 完成)
+- 过去时间不能创建日程(前后端双重校验)
+- 智能默认时间(下一个整点)
+- 一键完成日程(圆形按钮+灰显删除线)
+- 过期日程标记+优先级颜色
+- Schedule新增is_completed/completed_at, API: PUT /schedules/{id}/toggle
+
+### 项目状态 (2026-02-28 23:45)
+- 领导通知日程管理应用暂时告一段落
+- 当前: v3.0已上线，商业化框架完成
+
 ### 待对接
 - 微信支付: 等领导配置域名和商户号
 - 阿里云通知: 等领导提供AccessKey和模板ID
