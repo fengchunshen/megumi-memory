@@ -101,7 +101,7 @@
 - 地址: http://43.167.199.107:8002/
 - 管理端: http://43.167.199.107:8002/admin
 - 技术栈: FastAPI + React + Vite + TailwindCSS + SQLite
-- 状态: v3.0 Phase 1 已上线
+- 状态: v3.0 已上线 + 商业化完善中
 - systemd服务: schedule-app.service (enabled)
 - 管理员密码: admin2026
 
@@ -172,17 +172,45 @@
 ### VIP明细+通知明细 (2026-02-28 完成)
 - VipDetailPage: 4个tab(总览/订单记录/短信明细/电话明细)
 - 总览: VIP状态卡片+到期提醒+额度进度条+消费统计
+- 个人中心VIP卡片: 渐变背景置顶+续费按钮+额度进度条+明细入口
 - API: /vip/detail, /vip/orders, /reminder/sms, /reminder/call, /reminder/stats
 
+### VIP续费逻辑 (2026-02-28 完成)
+- 规则: 时长叠加+额度叠加（简单透明）
+- 未到期续费在到期时间上叠加，已到期从当前开始算
+- 额度直接累加，不清零不重置
+- 续费预览API: GET /api/vip/renew-preview
+- 前端: 点击开通/续费先弹预览弹窗，确认后支付
+
+### 习惯打卡免费版限制 (2026-02-28 完成)
+- 数量: 最多3个习惯
+- 历史: 免费用户只看近30天，VIP看全部
+- 统计页显示限制提示引导升级
+
+### 日程板块便捷性优化 (2026-02-28 完成)
+- 过去时间不能创建日程(前后端双重校验)
+- 智能默认时间: 新建日程自动填充下一个整点
+- 一键完成日程: 圆形按钮+完成后灰显删除线
+- 过期日程: 降低透明度+红色"已过期"标签
+- 优先级颜色: 左边框(高红/中黄/低绿)
+- Schedule新增: is_completed, completed_at字段
+- API: PUT /api/schedules/{id}/toggle
+
 ### 微信支付模块 (2026-02-28 代码就绪)
-- 模块: /home/lighthouse/schedule-app/backend/wechat_pay.py
+- 模块: backend/wechat_pay.py
 - 功能: Native扫码支付下单、回调验签、订单查询
 - 配置: WECHAT_APPID, WECHAT_MCH_ID, WECHAT_API_KEY, WECHAT_NOTIFY_URL
-- 状态: 等领导提供商户号配置+域名
+- 状态: 等领导提供商户号+域名
+
+### 阿里云短信+语音通知 (2026-02-28 代码就绪)
+- 模块: backend/aliyun_notify.py
+- 功能: send_sms + make_call(TTS外呼播放2次)
+- 后台调度: daemon线程每60秒扫描自动发送
+- 配置(等领导提供): ALIYUN_ACCESS_KEY_ID/SECRET, SMS_SIGN_NAME, SMS_TEMPLATE_CODE, TTS_CODE
 
 ### 待对接
-- 阿里云短信SDK + 语音通话API
 - 微信支付: 等领导配置域名和商户号
+- 阿里云通知: 等领导提供AccessKey和模板ID
 
 ## PDF查重工具 (pdf-checker)
 - 项目路径: /home/lighthouse/pdf-checker
