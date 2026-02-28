@@ -125,6 +125,16 @@
 - 公告管理: 发布/删除公告
 - 操作日志: 管理员操作记录
 
+### 分页系统
+- 后端: paginate()辅助函数，每页20条，返回{items,total,page,pages}
+- 8个API已支持分页: schedules, search, notifications, admin/users, admin/users/search, admin/orders, admin/announcements, admin/logs
+- 前端: Pager通用组件，用户端和管理端都已适配
+
+### 待处理需求 (2026-02-28)
+- 非VIP用户权益设计：有哪些权益，如何体现
+- VIP购买清单后台可编辑
+- 状态: 待产品经理出方案
+
 ### 待对接
 - 阿里云短信SDK + 语音通话API
 - 真实支付接口
