@@ -95,12 +95,27 @@
 - 虎皮椒支付: XUNHU_APPID, XUNHU_APPSECRET (https://www.xunhupay.com)
 
 ## 日程管理应用 (schedule-app)
-- 状态: 产品经理规划中
+- 项目路径: /home/lighthouse/schedule-app
 - 端口: 8002
-- 核心功能: 日程管理 + 短信/电话提醒（阿里云）
-- 商业化: 付费模式 + 邀请分佣
-- 技术要求: 前后端分离，多端兼容，多主题切换
-- 启动时间: 2026-02-28
+- 地址: http://43.167.199.107:8002/
+- 技术栈: FastAPI + React + Vite + TailwindCSS + SQLite
+- 状态: v1.0 已部署运行
+- systemd服务: schedule-app.service (enabled)
+- 管理员账号: admin@test.com / admin123
+
+### 已完成功能
+- 用户系统: 邮箱注册登录，JWT鉴权
+- 日程CRUD: 创建/编辑/删除，日/周/月视图，优先级，重复日程，分类标签
+- 提醒系统: 应用内 + 短信/电话提醒接口（阿里云SDK待对接）
+- VIP付费: 月卡¥9.9/季卡¥24.9/年卡¥79.9，模拟支付
+- 邀请分佣: 邀请码，7天VIP奖励，20%佣金，满10元提现
+- 多主题: Light/Dark/Ocean/Forest/Sunset 五套主题
+- 后台管理: 仪表盘 + 用户管理 + 赠VIP
+- 多端兼容: 响应式设计，PC/手机/平板
+
+### 待对接
+- 阿里云短信SDK + 语音通话API
+- 真实支付（当前为模拟支付）
 
 ## PDF查重工具 (pdf-checker)
 - 项目路径: /home/lighthouse/pdf-checker
