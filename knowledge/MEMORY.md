@@ -169,9 +169,20 @@
 - Phase 2(待开发): 四象限视图、成就系统扩展
 - Phase 3(待开发): 数据统计复盘、数据导出PDF/Excel
 
+### VIP明细+通知明细 (2026-02-28 完成)
+- VipDetailPage: 4个tab(总览/订单记录/短信明细/电话明细)
+- 总览: VIP状态卡片+到期提醒+额度进度条+消费统计
+- API: /vip/detail, /vip/orders, /reminder/sms, /reminder/call, /reminder/stats
+
+### 微信支付模块 (2026-02-28 代码就绪)
+- 模块: /home/lighthouse/schedule-app/backend/wechat_pay.py
+- 功能: Native扫码支付下单、回调验签、订单查询
+- 配置: WECHAT_APPID, WECHAT_MCH_ID, WECHAT_API_KEY, WECHAT_NOTIFY_URL
+- 状态: 等领导提供商户号配置+域名
+
 ### 待对接
 - 阿里云短信SDK + 语音通话API
-- 真实支付接口
+- 微信支付: 等领导配置域名和商户号
 
 ## PDF查重工具 (pdf-checker)
 - 项目路径: /home/lighthouse/pdf-checker
