@@ -42,11 +42,37 @@
 ## 简历助手 (resume-optimizer)
 - 路径: /home/lighthouse/resume-optimizer
 - 端口: 8081，地址: http://43.167.199.107:8081/
-- 技术栈: FastAPI + PyMuPDF + python-docx + DeepSeek API
-- 功能: PDF/Word上传分析、文本分析、流式输出、历史记录、导出PDF、暗色模式
-- 商业化: 邮箱注册登录+JWT、免费3次/天、VIP套餐(月¥19.9/季¥49.9/年¥99.9/单次¥3.9)
-- 后台: /admin 密码 admin2026
-- 待对接: 虎皮椒支付密钥、腾讯广点通广告位ID
+- 技术栈: FastAPI + PyMuPDF + python-docx + DeepSeek API + SQLite
+- 功能: PDF/Word上传分析、文本分析、流式输出、历史记录、导出PDF、暗色模式、VIP多次改写
+- 商业化: 邮箱注册登录+JWT、免费3次/天、VIP套餐(数据库管理，可后台编辑)
+- 后台: /admin 密码 admin2026（深色科技感主题，JWT双重认证）
+- 邀请页: /invite（两步流程：权益展示→登录获取邀请码）
+- 支付: 虎皮椒已集成(payment.py)，待填APPID/APPSECRET；领导在考虑其他方案(YunGouOS/PayJS)
+
+### 已完成功能 (截至2026-03-02)
+- 前端两栏布局（左评分/右优化简历）、可折叠历史面板
+- VIP多次改写（/api/rewrite-stream）
+- 邀请机制：6位邀请码、邀请人+3天VIP、被邀请人+1天VIP、20%佣金
+- 邀请链接 /invite?code=XXX 自动弹注册弹窗预填邀请码
+- VIP套餐数据库管理（vip_plans表，后台CRUD）
+- 公告系统（announcements表，后台发布/编辑/隐藏）
+- 安全策略：CORS限制、安全响应头、登录限流(5分钟10次)、安全日志
+- 管理后台：概览/用户/分析记录/订单/优惠码/邀请/套餐/公告（8个模块）
+- 管理后台UI：深色科技感、SVG图标、多条件筛选、增强分页、移动端汉堡菜单
+
+### 数据库表
+- users（含invite_code/invited_by/is_banned/commission_balance）
+- usage_log、credit_packages、analysis_log、invitations
+- vip_plans（套餐管理）、announcements（公告）
+- orders、promo_codes（payment.py管理）
+
+### 全量测试结果 (2026-03-02 19:28)
+- 23项测试全部通过：页面/注册/登录/VIP/套餐/邀请/公告/分析/导出/安全头/游客/管理后台
+- 总用户6人，VIP 2人，分析记录2条
+
+### 待对接
+- 支付密钥（虎皮椒或其他方案，领导考虑中）
+- 腾讯广点通广告位ID
 
 ## 日程管理应用 (schedule-app)
 - 路径: /home/lighthouse/schedule-app
