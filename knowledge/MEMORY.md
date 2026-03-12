@@ -88,6 +88,15 @@
 - 支付密钥（虎皮椒或其他方案，领导考虑中）
 - 腾讯广点通广告位ID
 
+## 文化园区展示系统 (cultural-district)
+- 路径: /home/lighthouse/cultural-district
+- 端口: 9000，地址: http://43.167.199.107:9000/
+- 技术栈: FastAPI + React + Vite + TailwindCSS + SQLite
+- 功能: 文化街区展示、商户管理、商品商城、Banner管理
+- 管理后台: /admin，账号密码需配置
+- 系统标题: 文化园区展示系统（2026-03-12从「浦东文采会」修改）
+- 联系信息: 邮箱 pdzdzx@126.com / 电话 68757353 / 地址 上海市浦东新区锦绣路2769号
+
 ## 日程管理应用 (schedule-app)
 - 路径: /home/lighthouse/schedule-app
 - 端口: 8002，地址: http://43.167.199.107:8002/
