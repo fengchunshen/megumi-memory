@@ -149,6 +149,15 @@
 | 8021 | gift-guru | AI送礼顾问 |
 | 8022 | pet-doctor | AI宠物顾问 |
 
+## 拼豆生成器 (bead-studio)
+- 路径: /home/lighthouse/bead-studio
+- 端口: 8082，地址: http://43.167.199.107:8082/
+- 技术栈: FastAPI + PIL/NumPy + 纯HTML/CSS/JS
+- 功能: 图片转拼豆图案、多品牌色卡支持、材料清单生成
+- 算法: Floyd-Steinberg抖动、标准/抖动/轮廓三种模式
+- 支持品牌: Artkal(50色)/Perler(30色)/Hama(30色)/Mard(30色)
+- 状态: Web版本已上线，微信小程序版本待开发
+
 ## PDF查重工具 (pdf-checker)
 - 路径: /home/lighthouse/pdf-checker
 - 端口: 8080
